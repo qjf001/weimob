@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qjf.demo.mapper.WeimobUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qjf.demo.entity.WeimobUser">
+        <id column="id" property="id" />
+        <result column="openid" property="openid" />
+        <result column="weimob_openid" property="weimobOpenid" />
+        <result column="customer_no" property="customerNo" />
+        <result column="qrcode_url" property="qrcodeUrl" />
+        <result column="barcode_url" property="barcodeUrl" />
+        <result column="tags" property="tags" />
+        <result column="is_fans" property="isFans" />
+        <result column="customer_type" property="customerType" />
+        <result column="levelname" property="levelname" />
+        <result column="menbercard_id" property="menbercardId" />
+        <result column="current_growth_value" property="currentGrowthValue" />
+        <result column="wxcode_status" property="wxcodeStatus" />
+        <result column="wxcode" property="wxcode" />
+        <result column="register_date" property="registerDate" />
+        <result column="card_validity_type" property="cardValidityType" />
+        <result column="card_validity_time" property="cardValidityTime" />
+        <result column="name" property="name" />
+        <result column="nickname" property="nickname" />
+        <result column="portrait_url" property="portraitUrl" />
+        <result column="phone" property="phone" />
+        <result column="sex" property="sex" />
+        <result column="birth_day" property="birthDay" />
+        <result column="total_points" property="totalPoints" />
+        <result column="current_points" property="currentPoints" />
+        <result column="current_amount" property="currentAmount" />
+        <result column="total_transaction_amount" property="totalTransactionAmount" />
+        <result column="total_transaction_count" property="totalTransactionCount" />
+        <result column="average_amount" property="averageAmount" />
+        <result column="last_transaction_time" property="lastTransactionTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, openid AS openid, weimob_openid AS weimobOpenid, customer_no AS customerNo, qrcode_url AS qrcodeUrl, barcode_url AS barcodeUrl, tags AS tags, is_fans AS isFans, customer_type AS customerType, levelname AS levelname, menbercard_id AS menbercardId, current_growth_value AS currentGrowthValue, wxcode_status AS wxcodeStatus, wxcode AS wxcode, register_date AS registerDate, card_validity_type AS cardValidityType, card_validity_time AS cardValidityTime, name AS name, nickname AS nickname, portrait_url AS portraitUrl, phone AS phone, sex AS sex, birth_day AS birthDay, total_points AS totalPoints, current_points AS currentPoints, current_amount AS currentAmount, total_transaction_amount AS totalTransactionAmount, total_transaction_count AS totalTransactionCount, average_amount AS averageAmount, last_transaction_time AS lastTransactionTime, create_time AS createTime, update_time AS updateTime
+    </sql>
+
+    <select id="selectMaxCreateTime" resultType="java.lang.Long">
+      select ISNULL (max(create_time),0) from t_weimob_user
+    </select>
+</mapper>

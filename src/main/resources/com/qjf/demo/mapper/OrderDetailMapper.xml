@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qjf.demo.mapper.OrderDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qjf.demo.entity.OrderDetail">
+        <id column="id" property="id" />
+        <result column="orderSn" property="orderSn" />
+        <result column="productName" property="productName" />
+        <result column="productCate" property="productCate" />
+        <result column="shoppingOption" property="shoppingOption" />
+        <result column="price" property="price" />
+        <result column="num" property="num" />
+        <result column="subtotal" property="subtotal" />
+        <result column="memberAccount" property="memberAccount" />
+        <result column="leaveMessage" property="leaveMessage" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+        <result column="mobile" property="mobile" />
+        <result column="zipCode" property="zipCode" />
+        <result column="distribution" property="distribution" />
+        <result column="distributionPrice" property="distributionPrice" />
+        <result column="payWay" property="payWay" />
+        <result column="orderMemo" property="orderMemo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, orderSn AS orderSn, productName AS productName, productCate AS productCate, shoppingOption AS shoppingOption, price AS price, num AS num, subtotal AS subtotal, memberAccount AS memberAccount, leaveMessage AS leaveMessage, name AS name, address AS address, mobile AS mobile, zipCode AS zipCode, distribution AS distribution, distributionPrice AS distributionPrice, payWay AS payWay, orderMemo AS orderMemo
+    </sql>
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qjf.demo.mapper.WeimobOrderDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qjf.demo.entity.WeimobOrderDetail">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="return_type" property="returnType" />
+        <result column="amount" property="amount" />
+        <result column="spu_code" property="spuCode" />
+        <result column="image_url" property="imageUrl" />
+        <result column="return_id" property="returnId" />
+        <result column="sku_id" property="skuId" />
+        <result column="sale_price" property="salePrice" />
+        <result column="is_delete" property="isDelete" />
+        <result column="order_detail_id" property="orderDetailId" />
+        <result column="price" property="price" />
+        <result column="qty" property="qty" />
+        <result column="balance_amount" property="balanceAmount" />
+        <result column="return_status" property="returnStatus" />
+        <result column="sku_name" property="skuName" />
+        <result column="inventory_type" property="inventoryType" />
+        <result column="spu_id" property="spuId" />
+        <result column="sku_code" property="skuCode" />
+        <result column="sku_description" property="skuDescription" />
+        <result column="return_qty" property="returnQty" />
+        <result column="sale_amount" property="saleAmount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, order_id AS orderId, return_type AS returnType, amount AS amount, spu_code AS spuCode, image_url AS imageUrl, return_id AS returnId, sku_id AS skuId, sale_price AS salePrice, is_delete AS isDelete, order_detail_id AS orderDetailId, price AS price, qty AS qty, balance_amount AS balanceAmount, return_status AS returnStatus, sku_name AS skuName, inventory_type AS inventoryType, spu_id AS spuId, sku_code AS skuCode, sku_description AS skuDescription, return_qty AS returnQty, sale_amount AS saleAmount
+    </sql>
+
+</mapper>

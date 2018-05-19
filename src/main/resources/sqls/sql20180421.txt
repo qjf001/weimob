@@ -1,0 +1,157 @@
+﻿USE [weimob]
+GO
+
+/****** Object:  Table [dbo].[t_order]    Script Date: 04/21/2018 12:32:20 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[t_order](
+	[id] [nvarchar](50) NOT NULL,
+	[payTime] [date] NOT NULL,
+	[memberAccount] [nvarchar](50) NULL,
+	[memberName] [nvarchar](50) NULL,
+	[orderAmount] [decimal](18, 2) NOT NULL,
+	[orderStatus] [nvarchar](50) NOT NULL,
+	[leaveMessage] [nvarchar](50) NULL,
+	[name] [nvarchar](50) NULL,
+	[address] [nvarchar](255) NULL,
+	[mobile] [nvarchar](50) NULL,
+	[zipCode] [nvarchar](10) NULL,
+	[distribution] [nvarchar](50) NULL,
+	[distributionPrice] [decimal](18, 2) NULL,
+	[payWay] [nvarchar](50) NULL,
+	[orderMemo] [nvarchar](255) NULL,
+ CONSTRAINT [PK_t_order] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'订单编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'id'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'结算时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'payTime'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'会员账号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'memberAccount'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'会员姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'memberName'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'订单金额' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'orderAmount'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'订单状态' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'orderStatus'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'name'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'address'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'手机' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'mobile'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'邮编' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'zipCode'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'配送方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'distribution'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'支付方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order', @level2type=N'COLUMN',@level2name=N'payWay'
+GO
+
+
+USE [weimob]
+GO
+
+/****** Object:  Table [dbo].[t_order_detail]    Script Date: 04/21/2018 12:32:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[t_order_detail](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[orderSn] [nvarchar](50) NOT NULL,
+	[productName] [nvarchar](50) NULL,
+	[productCate] [nvarchar](50) NULL,
+	[shoppingOption] [nvarchar](200) NULL,
+	[price] [decimal](18, 2) NULL,
+	[num] [int] NULL,
+	[subtotal] [decimal](18, 2) NULL,
+	[memberAccount] [nvarchar](50) NULL,
+	[leaveMessage] [nvarchar](50) NULL,
+	[name] [nvarchar](50) NULL,
+	[address] [nvarchar](255) NULL,
+	[mobile] [nvarchar](50) NULL,
+	[zipCode] [nvarchar](10) NULL,
+	[distribution] [nvarchar](50) NULL,
+	[distributionPrice] [decimal](18, 2) NULL,
+	[payWay] [nvarchar](50) NULL,
+	[orderMemo] [nvarchar](255) NULL,
+ CONSTRAINT [PK_t_order_detail_1] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'订单编号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'orderSn'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'产品名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'productName'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'购物选项' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'shoppingOption'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'单价' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'price'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'数量' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'num'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'会员账号' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'memberAccount'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'name'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'address'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'手机' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'mobile'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'邮编' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'zipCode'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'配送方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'distribution'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'支付方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N't_order_detail', @level2type=N'COLUMN',@level2name=N'payWay'
+GO
+
+
+USE [weimob]
+GO
+/****** Object:  Table [dbo].[t_admin_resource]    Script Date: 04/21/2018 12:35:53 ******/
+SET IDENTITY_INSERT [dbo].[t_admin_resource] ON
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (49, N'pc端订单——列表', N'/admin/order/list')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (50, N'pc端订单_列表数据', N'/admin/order/listData')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (51, N'pc端订单_上传', N'/admin/order/upload')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (52, N'pc端订单_编辑页面', N'/admin/order/edit')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (53, N'pc端订单详情_列表页面', N'/admin/orderDetail/list')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (54, N'pc端订单详情_列表数据', N'/admin/orderDetail/listData')
+INSERT [dbo].[t_admin_resource] ([id], [name], [url]) VALUES (55, N'pc端订单详情_编辑页面', N'/admin/orderDetail/edit')
+SET IDENTITY_INSERT [dbo].[t_admin_resource] OFF

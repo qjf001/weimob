@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qjf.demo.mapper.OrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qjf.demo.entity.Order">
+        <id column="orderSn" property="orderSn" />
+        <result column="payTime" property="payTime" />
+        <result column="memberAccount" property="memberAccount" />
+        <result column="memberName" property="memberName" />
+        <result column="orderAmount" property="orderAmount" />
+        <result column="orderStatus" property="orderStatus" />
+        <result column="leaveMessage" property="leaveMessage" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+        <result column="mobile" property="mobile" />
+        <result column="zipCode" property="zipCode" />
+        <result column="distribution" property="distribution" />
+        <result column="distributionPrice" property="distributionPrice" />
+        <result column="payWay" property="payWay" />
+        <result column="orderMemo" property="orderMemo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        orderSn AS orderSn, payTime AS payTime, memberAccount AS memberAccount, memberName AS memberName, orderAmount AS orderAmount, orderStatus AS orderStatus, leaveMessage AS leaveMessage, name AS name, address AS address, mobile AS mobile, zipCode AS zipCode, distribution AS distribution, distributionPrice AS distributionPrice, payWay AS payWay, orderMemo AS orderMemo
+    </sql>
+
+</mapper>

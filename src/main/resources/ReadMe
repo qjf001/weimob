@@ -1,0 +1,7 @@
+生产部署：
+1、修改 ehcache.xml 文件中<diskStore path="d:/demo-ehcache"/>标记中path的值为服务器存在的目录
+2、修改 jdbc.properties 中 jdbc.url jdbc.username jdbc.password 三个属性值为生产数据的实际配置
+3、需要执行初始化数据库脚本，resources/sqls 中的 init.sql和tables_sqlServer.sql ,两个sql文件没有先后顺序
+4、登录系统后需要初始化token（使用【token管理】模块中的【初始化token】功能），初始token需要用到code。
+5、服务重启后需要初始化token,否则需要使用token的所有功能都将无法工作。
+6、系统启动30秒后可以配置/启动/停止定时任务。
